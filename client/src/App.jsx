@@ -439,7 +439,8 @@ import Footer from './component/footer';
 import { DevelopersPage } from './component/DevelopersPage';
 import { Home } from './component/Home';
 import BlogPage from './component/BlogPage';
-import Authentication from './Authentication'; // Assuming Authentication component is in Authentication.js file
+import Authentication from './Authentication';
+import Profile from './component/Profile';
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
@@ -461,6 +462,7 @@ function App() {
                         <Route exact path="/about" element={<AboutPage />} />
                         <Route exact path="/blog" element={<BlogPage />} />
                         <Route exact path="/developer" element={<DevelopersPage />} />
+                        <Route path="/profile" element={<Profile />} />
                       
                     </Routes>
                     <Footer />
