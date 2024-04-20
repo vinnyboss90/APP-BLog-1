@@ -34,22 +34,15 @@ def article_to_dict(article):
 @app.route('/get', methods=['GET'])
 def get_articles():
     all_articles = Articles.query.all()
-    if not all_articles:
-        return jsonify([])  # Return an empty list if there are no articles
-
     results = [article_to_dict(article) for article in all_articles]
     return jsonify(results)
-
 
 @app.route('/get/<int:id>/', methods=['GET'])
 def get_article(id):
     article = Articles.query.get(id)
     if not article:
         return jsonify({'error': 'Article not found'}), 404
-
     return jsonify(article_to_dict(article))
-
-from flask import jsonify, request
 
 @app.route('/add', methods=['POST'])
 def add_article():
@@ -59,7 +52,6 @@ def add_article():
     article = Articles(title=title, body=body)
     db.session.add(article)
     db.session.commit()
-    db.create_all()
     return jsonify(article_to_dict(article))
 
 @app.route('/update/<int:id>/', methods=['PUT'])
@@ -83,8 +75,7 @@ def delete_article(id):
     db.session.delete(article)
     db.session.commit()
 
-    return jsonify(article_to_dict(article))
-
+    return jsonify({'message': 'Article deleted successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)
