@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, request,render_template, redirect,session
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
@@ -33,7 +33,6 @@ def article_to_dict(article):
         'body': article.body,
         'date': article.date.strftime('%Y-%m-%d %H:%M:%S')
     }
-
 
 @app.route('/get', methods=['GET'])
 def get_articles():
