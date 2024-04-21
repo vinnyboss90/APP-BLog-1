@@ -5,8 +5,8 @@
         "dest": "/"
       },
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "src": "/test",
+        "dest": "/"
       }
   ]
 }
