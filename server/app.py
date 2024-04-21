@@ -293,6 +293,7 @@ import jwt
 from flask_cors import CORS
 
 app = Flask(__name__)
+users = {}
 CORS(app)
 
 # Configuration for JWT
@@ -324,6 +325,7 @@ class Articles(db.Model):
 # Model for users
 class User(db.Model):
     __tablename__ = 'Users'
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
     image = db.Column(db.String(100))

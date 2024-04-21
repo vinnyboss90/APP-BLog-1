@@ -28,9 +28,10 @@ const Profile = () => {
       });
   }, []);
 
+  // Handle saving profile and posting blogs
   const handleSaveProfile = () => {
     // Check if username already exists
-    if (savedUsers.some(user => user.username === username)) {
+    if (savedUsers && savedUsers.some(user => user.username === username)) {
       alert('Username already exists. Please choose a different one.');
       return;
     }
@@ -41,7 +42,7 @@ const Profile = () => {
         console.log('Profile saved successfully:', response.data);
         setCurrentUserId(response.data.id);
         // Add the saved user to the list of saved users
-        setSavedUsers([...savedUsers, response.data]);
+        setSavedUsers(prevUsers => [...prevUsers, response.data]);
       })
       .catch(error => {
         console.error('Error saving profile:', error);
@@ -63,7 +64,7 @@ const Profile = () => {
       .then(response => {
         console.log('Blog posted successfully:', response.data);
         // Update the list of blogs
-        setBlogs([...blogs, response.data]);
+        setBlogs(prevBlogs => [...prevBlogs, response.data]);
       })
       .catch(error => {
         console.error('Error posting blog:', error);
@@ -74,6 +75,7 @@ const Profile = () => {
     <div className="container mx-auto my-8">
       {currentUserId ? (
         <div className="flex flex-wrap justify-center">
+          {/* Profile display */}
           <div className="w-64 m-4">
             <img src={image} alt={username} className="w-full mb-2 rounded" />
             <p className="text-center">{username}</p>
@@ -89,6 +91,7 @@ const Profile = () => {
         </div>
       ) : (
         <div className="flex flex-wrap justify-center">
+          {/* Profile editing form */}
           <div className="w-64 m-4">
             <input
               type="text"
@@ -108,14 +111,6 @@ const Profile = () => {
           </div>
         </div>
       )}
-      <div className="w-full my-8">
-        <h2 className="text-2xl font-bold mb-4">Blogs</h2>
-        {blogs.map(blog => (
-          <div key={blog.id} className="border border-gray-300 p-4 rounded mb-4">
-            <p>{blog.content}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
