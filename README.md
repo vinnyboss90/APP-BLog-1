@@ -1,35 +1,48 @@
-# APP-BLog
+## Blog App
+A simple blog app where users can create, read, update, and delete blog posts. User authentication is implemented using JWT.
 
-Project Proposal: Blog App
+## Technologies Used
+Frontend: React with Vite
+Backend: Python with Flask
+Authentication: JWT
+Features
+Create, read, update, and delete blog posts
+User authentication with JWT
+Getting Started
+Prerequisites
+Node.js and npm
+Python
+Flask
+Flask JWT Extended
 
-Project Statement:
-Create a modern blog application that provides users with a platform to write and share their thoughts, stories, and ideas. The blog app should be user-friendly, visually appealing, and offer essential features for managing blog posts and engaging with readers.
+## Installation
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/your-username/blog-app.git
+Install frontend dependencies:
+bash
+Copy code
+cd blog-app/frontend npm install
+Install backend dependencies:
+bash
+Copy code
+cd ../backend pip install -r requirements.txt
+Usage
+Start the frontend development server:
+bash
+Copy code
+cd ../frontend npm start
+The frontend will be accessible at http://localhost:3000.
+Start the backend Flask server:
+bash
+Copy code
+cd ../backend python app.py
 
-Solution:
+The backend will be accessible at http://localhost:5000.
+Use the blog app to create, read, update, and delete blog posts. Authenticate using JWT.
+Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-I propose the development of a blog application that allows users to create, edit, and delete blog posts. The app will also include features for user authentication, comments on blog posts,. The goal is to create a platform where users can easily publish their content and interact with readers.
-
-MVPs (Minimum Viable Product):
-
-The MVPs for this project would consist of the following features:
-User authentication: Allow users to register, log in, and manage their profiles.
-Create, edit, and delete blog posts: Provide a simple and intuitive interface for writing and managing blog content.
-Commenting system: Enable readers to leave comments on blog posts and engage in discussions.
-
-
-User Stories:
-
-As a user, I want to be able to register an account and log in to the blog app.
-As a user, I want to create new blog posts, edit existing posts, and delete posts if needed.
-As a user, I want readers to be able to leave comments on my blog posts.
-
-Technology Used:
-
-React for the frontend 
-
-Tailwind CSS 
-
-Python Flask for the backend to handle API requests, 
-
-
-
+## Acknowledgement
+To my group members, Allan, Louis, Vinnicent, Francis and Mbuvi, for their contributions and support throughout the development of this project.
